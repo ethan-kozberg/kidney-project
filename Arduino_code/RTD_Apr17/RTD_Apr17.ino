@@ -1,23 +1,9 @@
-/*************************************************** 
-  This is a library for the Adafruit PT100/P1000 RTD Sensor w/MAX31865
 
-  Designed specifically to work with the Adafruit RTD Sensor
-  ----> https://www.adafruit.com/products/3328
-
-  This sensor uses SPI to communicate, 4 pins are required to  
-  interface
-  Adafruit invests time and resources providing this open source code, 
-  please support Adafruit and open-source hardware by purchasing 
-  products from Adafruit!
-
-  Written by Limor Fried/Ladyada for Adafruit Industries.  
-  BSD license, all text above must be included in any redistribution
- ****************************************************/
 
 #include <Adafruit_MAX31865.h>
 
 // Use software SPI: CS, DI, DO, CLK
-Adafruit_MAX31865 thermo = Adafruit_MAX31865(10, 11, 12, 13);
+Adafruit_MAX31865 thermo = Adafruit_MAX31865(12,11,10,9);
 // use hardware SPI, just pass in the CS pin
 //Adafruit_MAX31865 thermo = Adafruit_MAX31865(10);
 
@@ -31,7 +17,7 @@ void setup() {
   Serial.begin(115200);
   Serial.println("Adafruit MAX31865 PT100 Sensor Test!");
 
-  thermo.begin(MAX31865_3WIRE);  // set to 2WIRE or 4WIRE as necessary
+  thermo.begin(MAX31865_4WIRE);  // set to 2WIRE or 4WIRE as necessary
 }
 
 
