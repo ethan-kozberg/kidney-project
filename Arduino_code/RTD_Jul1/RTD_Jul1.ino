@@ -29,8 +29,8 @@ void loop() {
   ratio /= 32768;
 //  Serial.print("Ratio = "); Serial.println(ratio,8);
   //Serial.print("Resistance = "); Serial.println(RREF*ratio,8);
-  //Serial.print("Temperature = "); Serial.println(thermo.temperature(RNOMINAL, RREF));
-  Serial.println()
+  float temps = thermo.temperature(RNOMINAL, RREF);
+  Serial.print("Temperature = "); Serial.println(temps);
 
 
   // Check and print any faults
