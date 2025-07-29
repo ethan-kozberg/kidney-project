@@ -1,0 +1,88 @@
+[
+    {
+        "id": "9c617a91ead5c9c3",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "85e8edbc69b42b40",
+        "type": "serial in",
+        "z": "9c617a91ead5c9c3",
+        "name": "Temperature",
+        "serial": "",
+        "x": 310,
+        "y": 540,
+        "wires": [
+            [
+                "e498fc789ba0dbd8",
+                "7c1412a9af8418d7"
+            ]
+        ]
+    },
+    {
+        "id": "e498fc789ba0dbd8",
+        "type": "ui_chart",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1F77B4",
+            "#AEC7E8",
+            "#FF7F0E",
+            "#2CA02C",
+            "#98DF8A",
+            "#D62728",
+            "#FF9896",
+            "#9467BD",
+            "#C5B0D5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 530,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c1412a9af8418d7",
+        "type": "ui_text",
+        "z": "9c617a91ead5c9c3",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000",
+        "x": 530,
+        "y": 520,
+        "wires": []
+    }
+]
