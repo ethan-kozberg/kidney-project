@@ -3,7 +3,8 @@
     "description": "A Node-RED Project",
     "version": "0.0.1",
     "dependencies": {
-        "node-red-node-serialport": "2.0.3"
+        "node-red-node-serialport": "2.0.3",
+        "@flowfuse/node-red-dashboard": "1.26.0"
     },
     "node-red": {
         "settings": {
