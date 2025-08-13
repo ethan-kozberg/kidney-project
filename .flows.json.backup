@@ -8,191 +8,300 @@
         "env": []
     },
     {
-        "id": "5bba8d6b454e0a71",
-        "type": "ui_group",
-        "d": true,
-        "name": "Temperature",
-        "tab": "",
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
+        "id": "a17c9063394ce04e",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "/dev/cu.usbmodemDCDA0C21C5BC2",
+        "serialbaud": "9600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
     },
     {
-        "id": "2cea5c708f984cf3",
-        "type": "ui_tab",
-        "name": "Tab",
-        "icon": "dashboard",
-        "order": 0
+        "id": "25e9a4029c0aff9c",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": true
     },
     {
-        "id": "19fbb532a7c06011",
-        "type": "ui_base",
-        "theme": {
-            "name": "theme-dark",
-            "lightTheme": {
-                "default": "#0094CE",
-                "baseColor": "#0094CE",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": true,
-                "reset": false
-            },
-            "darkTheme": {
-                "default": "#097479",
-                "baseColor": "#097479",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": true,
-                "reset": false
-            },
-            "customTheme": {
-                "name": "Untitled Theme 1",
-                "default": "#4B7930",
-                "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-            },
-            "themeState": {
-                "base-color": {
-                    "default": "#097479",
-                    "value": "#097479",
-                    "edited": false
-                },
-                "page-titlebar-backgroundColor": {
-                    "value": "#097479",
-                    "edited": false
-                },
-                "page-backgroundColor": {
-                    "value": "#111111",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#333333",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#0eb8c0",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#555555",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#333333",
-                    "edited": false
-                },
-                "widget-textColor": {
-                    "value": "#eeeeee",
-                    "edited": false
-                },
-                "widget-backgroundColor": {
-                    "value": "#097479",
-                    "edited": false
-                },
-                "widget-borderColor": {
-                    "value": "#333333",
-                    "edited": false
-                },
-                "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-                }
-            },
-            "angularTheme": {
-                "primary": "indigo",
-                "accents": "blue",
-                "warn": "red",
-                "background": "grey",
-                "palette": "light"
-            }
+        "id": "f7e970a831da1739",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
         },
-        "site": {
-            "name": "Node-RED Dashboard",
-            "hideToolbar": "false",
-            "allowSwipe": "false",
-            "lockMenu": "false",
-            "allowTempTheme": "true",
-            "dateFormat": "DD/MM/YYYY",
-            "sizes": {
-                "sx": 48,
-                "sy": 48,
-                "gx": 6,
-                "gy": 6,
-                "cx": 6,
-                "cy": 6,
-                "px": 0,
-                "py": 0
-            }
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
         }
     },
     {
-        "id": "72c0559d4be1b60a",
-        "type": "ui_group",
+        "id": "4a06c9c93d0ab176",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "25e9a4029c0aff9c",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "5214809e76c77a9c",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "28d4bbdde9f953ac",
+        "type": "ui-group",
         "name": "Group 1",
-        "tab": "2cea5c708f984cf3",
+        "page": "4a06c9c93d0ab176",
+        "width": 6,
+        "height": 1,
         "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
     },
     {
-        "id": "9fad8f51768b2cd3",
-        "type": "ui_group",
-        "name": "Group 2",
-        "tab": "2cea5c708f984cf3",
-        "order": 2,
-        "disp": true,
-        "width": 6
+        "id": "5214809e76c77a9c",
+        "type": "ui-theme",
+        "name": "ui-base.label.theme 2",
+        "colors": {
+            "surface": "#000000",
+            "primary": "#0094ce",
+            "bgPage": "#444444",
+            "groupBg": "#232323",
+            "groupOutline": "#fcffff"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
     },
     {
-        "id": "5f569a83ef3d5232",
-        "type": "ui_spacer",
+        "id": "af1055a549205611",
+        "type": "serial in",
         "z": "9c617a91ead5c9c3",
-        "name": "spacer",
-        "group": "72c0559d4be1b60a",
-        "order": 1,
-        "width": 1,
-        "height": 1
+        "name": "Temps-Mac",
+        "serial": "a17c9063394ce04e",
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "d4f158d279f12ee6"
+            ]
+        ]
     },
     {
-        "id": "5e731aab37d049f4",
-        "type": "ui_chart",
+        "id": "7a728784d5c34b03",
+        "type": "ui-chart",
         "z": "9c617a91ead5c9c3",
+        "group": "28d4bbdde9f953ac",
         "name": "Temperature",
-        "group": "72c0559d4be1b60a",
-        "order": 1,
-        "width": 0,
-        "height": 0,
         "label": "chart",
+        "order": 1,
         "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "HH:mm:ss",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "50",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
         "removeOlder": 1,
-        "removeOlderPoints": "",
         "removeOlderUnit": "60",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
+        "removeOlderPoints": "60",
         "colors": [
-            "#1f77b4",
-            "#aec7e8",
+            "#ff0000",
+            "#0433ff",
             "#ff7f0e",
             "#2ca02c",
-            "#98df8a",
+            "#a347e1",
             "#d62728",
             "#ff9896",
             "#9467bd",
             "#c5b0d5"
         ],
-        "outputs": 1,
-        "useDifferentColor": false,
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "6",
+        "height": "3",
         "className": "",
-        "x": 390,
-        "y": 360,
+        "interpolation": "linear",
+        "x": 470,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d4f158d279f12ee6",
+        "type": "json",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 330,
+        "y": 340,
+        "wires": [
+            [
+                "51cf3e5d19e7cc44",
+                "7a728784d5c34b03"
+            ]
+        ]
+    },
+    {
+        "id": "51cf3e5d19e7cc44",
+        "type": "ui-gauge",
+        "z": "9c617a91ead5c9c3",
+        "name": "temp gauge",
+        "group": "28d4bbdde9f953ac",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Temperature",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ff2600",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "34",
+                "color": "#ff9300",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "35",
+                "color": "#fffb00",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "36",
+                "color": "#00f900",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "38",
+                "color": "#fffb00",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "39",
+                "color": "#ff9300",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ff2600",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "20",
+        "max": "50",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 480,
+        "y": 260,
         "wires": [
             []
         ]
