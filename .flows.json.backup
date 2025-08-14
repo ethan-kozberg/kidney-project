@@ -67,9 +67,28 @@
         }
     },
     {
+        "id": "5214809e76c77a9c",
+        "type": "ui-theme",
+        "name": "ui-base.label.theme 2",
+        "colors": {
+            "surface": "#000000",
+            "primary": "#0094ce",
+            "bgPage": "#444444",
+            "groupBg": "#232323",
+            "groupOutline": "#fcffff"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
         "id": "4a06c9c93d0ab176",
         "type": "ui-page",
-        "name": "Page 1",
+        "name": "Kidney NMP",
         "ui": "25e9a4029c0aff9c",
         "path": "/page1",
         "icon": "home",
@@ -105,35 +124,30 @@
     {
         "id": "28d4bbdde9f953ac",
         "type": "ui-group",
-        "name": "Group 1",
+        "name": "Temperature",
         "page": "4a06c9c93d0ab176",
-        "width": 6,
+        "width": "12",
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "eee6be0fa8cf8841",
+        "type": "ui-group",
+        "name": "Pressure",
+        "page": "4a06c9c93d0ab176",
+        "width": "12",
         "height": 1,
         "order": 1,
         "showTitle": true,
         "className": "",
-        "visible": true,
-        "disabled": false,
+        "visible": "true",
+        "disabled": "false",
         "groupType": "default"
-    },
-    {
-        "id": "5214809e76c77a9c",
-        "type": "ui-theme",
-        "name": "ui-base.label.theme 2",
-        "colors": {
-            "surface": "#000000",
-            "primary": "#0094ce",
-            "bgPage": "#444444",
-            "groupBg": "#232323",
-            "groupOutline": "#fcffff"
-        },
-        "sizes": {
-            "density": "default",
-            "pagePadding": "12px",
-            "groupGap": "12px",
-            "groupBorderRadius": "4px",
-            "widgetGap": "12px"
-        }
     },
     {
         "id": "af1055a549205611",
@@ -150,68 +164,6 @@
         ]
     },
     {
-        "id": "7a728784d5c34b03",
-        "type": "ui-chart",
-        "z": "9c617a91ead5c9c3",
-        "group": "28d4bbdde9f953ac",
-        "name": "Temperature",
-        "label": "chart",
-        "order": 1,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "HH:mm:ss",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "0",
-        "ymax": "50",
-        "bins": 10,
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "circle",
-        "pointRadius": 4,
-        "showLegend": true,
-        "removeOlder": 1,
-        "removeOlderUnit": "60",
-        "removeOlderPoints": "60",
-        "colors": [
-            "#ff0000",
-            "#0433ff",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#666666"
-        ],
-        "textColorDefault": true,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": "6",
-        "height": "5",
-        "className": "",
-        "interpolation": "linear",
-        "x": 470,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "d4f158d279f12ee6",
         "type": "json",
         "z": "9c617a91ead5c9c3",
@@ -224,7 +176,7 @@
         "wires": [
             [
                 "51cf3e5d19e7cc44",
-                "7a728784d5c34b03"
+                "7245ea217c743ad6"
             ]
         ]
     },
@@ -235,12 +187,12 @@
         "name": "temp gauge",
         "group": "28d4bbdde9f953ac",
         "order": 2,
-        "value": "payload",
+        "value": "payload.temp",
         "valueType": "msg",
         "width": 3,
-        "height": 3,
+        "height": "4",
         "gtype": "gauge-half",
-        "gstyle": "rounded",
+        "gstyle": "needle",
         "title": "Temperature",
         "alwaysShowTitle": false,
         "floatingTitlePosition": "top-left",
@@ -305,5 +257,328 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "7245ea217c743ad6",
+        "type": "function",
+        "z": "9c617a91ead5c9c3",
+        "name": "function 1",
+        "func": "return{payload:msg.payload.temp}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 400,
+        "wires": [
+            [
+                "30c07574f0518963"
+            ]
+        ]
+    },
+    {
+        "id": "30c07574f0518963",
+        "type": "ui-chart",
+        "z": "9c617a91ead5c9c3",
+        "group": "28d4bbdde9f953ac",
+        "name": "",
+        "label": "chart",
+        "order": 1,
+        "chartType": "line",
+        "category": "",
+        "categoryType": "none",
+        "xAxisLabel": "timestamp",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "HH:mm:ss",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "temperature (*C)",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "9",
+        "height": "4",
+        "className": "",
+        "interpolation": "linear",
+        "x": 650,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "70cb3ff3fbbea485",
+        "type": "serial in",
+        "z": "9c617a91ead5c9c3",
+        "name": "Pressure-In",
+        "serial": "",
+        "x": 150,
+        "y": 540,
+        "wires": [
+            [
+                "a02bf7650814ff04"
+            ]
+        ]
+    },
+    {
+        "id": "a02bf7650814ff04",
+        "type": "json",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 330,
+        "y": 540,
+        "wires": [
+            [
+                "9465aef0b11ae1ce",
+                "bb2fe21995a60ff9",
+                "71ad3391f0fb760c",
+                "c4a4f3374ef934a7"
+            ]
+        ]
+    },
+    {
+        "id": "9465aef0b11ae1ce",
+        "type": "function",
+        "z": "9c617a91ead5c9c3",
+        "name": "systolic",
+        "func": "\nreturn { payload: msg.payload.systolic }",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 540,
+        "wires": [
+            [
+                "57e5b55dd50650ad"
+            ]
+        ]
+    },
+    {
+        "id": "bb2fe21995a60ff9",
+        "type": "function",
+        "z": "9c617a91ead5c9c3",
+        "name": "diastolic",
+        "func": "\nreturn { payload: msg.payload.diastolic }\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 600,
+        "wires": [
+            [
+                "b8a06cd1bf4f6333"
+            ]
+        ]
+    },
+    {
+        "id": "71ad3391f0fb760c",
+        "type": "function",
+        "z": "9c617a91ead5c9c3",
+        "name": "MAP",
+        "func": "\n\nreturn { payload: msg.payload.MAP }",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 680,
+        "wires": [
+            [
+                "e98e97b45868c909"
+            ]
+        ]
+    },
+    {
+        "id": "c4a4f3374ef934a7",
+        "type": "function",
+        "z": "9c617a91ead5c9c3",
+        "name": "pressure",
+        "func": "\n\nreturn { payload: msg.payload.pressure }",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 740,
+        "wires": [
+            [
+                "9b4e3e9b8fecfb8c"
+            ]
+        ]
+    },
+    {
+        "id": "9b4e3e9b8fecfb8c",
+        "type": "ui-chart",
+        "z": "9c617a91ead5c9c3",
+        "group": "eee6be0fa8cf8841",
+        "name": "",
+        "label": "chart",
+        "order": 1,
+        "chartType": "line",
+        "category": "",
+        "categoryType": "none",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "9",
+        "height": "6",
+        "className": "",
+        "interpolation": "linear",
+        "x": 540,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "57e5b55dd50650ad",
+        "type": "ui-text",
+        "z": "9c617a91ead5c9c3",
+        "group": "eee6be0fa8cf8841",
+        "order": 4,
+        "width": "3",
+        "height": "2",
+        "name": "SYS",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 630,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b8a06cd1bf4f6333",
+        "type": "ui-text",
+        "z": "9c617a91ead5c9c3",
+        "group": "eee6be0fa8cf8841",
+        "order": 3,
+        "width": "3",
+        "height": "2",
+        "name": "DIA",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 630,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "e98e97b45868c909",
+        "type": "ui-text",
+        "z": "9c617a91ead5c9c3",
+        "group": "eee6be0fa8cf8841",
+        "order": 2,
+        "width": "3",
+        "height": "2",
+        "name": "MAP",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 590,
+        "y": 680,
+        "wires": []
     }
 ]
