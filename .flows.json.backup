@@ -2,7 +2,7 @@
     {
         "id": "9c617a91ead5c9c3",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Main Flow",
         "disabled": false,
         "info": "",
         "env": []
@@ -88,7 +88,7 @@
     {
         "id": "4a06c9c93d0ab176",
         "type": "ui-page",
-        "name": "Kidney NMP",
+        "name": "Kidney NMP Dashboard",
         "ui": "25e9a4029c0aff9c",
         "path": "/page1",
         "icon": "home",
@@ -150,6 +150,94 @@
         "groupType": "default"
     },
     {
+        "id": "59183145f8d0875c",
+        "type": "ui-page",
+        "name": "Setup",
+        "ui": "25e9a4029c0aff9c",
+        "path": "/page2",
+        "icon": "cog",
+        "layout": "grid",
+        "theme": "5214809e76c77a9c",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "c61f9fdcfb121fcd",
+        "type": "ui-group",
+        "name": "Pressure Setup",
+        "page": "59183145f8d0875c",
+        "width": "3",
+        "height": "6",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "ab5a955a20c797d7",
+        "type": "ui-group",
+        "name": "Persistent Monitoring",
+        "page": "59183145f8d0875c",
+        "width": "3",
+        "height": "12",
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "8454efb05038013c",
+        "type": "ui-group",
+        "name": "Pump Control",
+        "page": "59183145f8d0875c",
+        "width": "6",
+        "height": "3",
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "8ab0188a40f8728a",
+        "type": "ui-spacer",
+        "group": "8454efb05038013c",
+        "name": "spacer",
+        "order": 2,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
         "id": "af1055a549205611",
         "type": "serial in",
         "z": "9c617a91ead5c9c3",
@@ -176,7 +264,8 @@
         "wires": [
             [
                 "51cf3e5d19e7cc44",
-                "7245ea217c743ad6"
+                "7245ea217c743ad6",
+                "b25fe710b1019823"
             ]
         ]
     },
@@ -245,14 +334,14 @@
             }
         ],
         "min": "20",
-        "max": "50",
+        "max": "40",
         "sizeThickness": 16,
         "sizeGap": 4,
         "sizeKeyThickness": 8,
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 480,
+        "x": 610,
         "y": 260,
         "wires": [
             []
@@ -284,7 +373,7 @@
         "z": "9c617a91ead5c9c3",
         "group": "28d4bbdde9f953ac",
         "name": "",
-        "label": "chart",
+        "label": "Temperature Chart",
         "order": 1,
         "chartType": "line",
         "category": "",
@@ -312,7 +401,7 @@
         "removeOlderUnit": "60",
         "removeOlderPoints": "",
         "colors": [
-            "#0095ff",
+            "#00fdff",
             "#ff0000",
             "#ff7f0e",
             "#2ca02c",
@@ -323,18 +412,18 @@
             "#c5b0d5"
         ],
         "textColor": [
-            "#666666"
+            "#ffffff"
         ],
-        "textColorDefault": true,
+        "textColorDefault": false,
         "gridColor": [
-            "#e5e5e5"
+            "#0061ff"
         ],
         "gridColorDefault": true,
         "width": "9",
         "height": "4",
         "className": "",
         "interpolation": "linear",
-        "x": 650,
+        "x": 690,
         "y": 400,
         "wires": [
             []
@@ -459,7 +548,7 @@
         "z": "9c617a91ead5c9c3",
         "group": "eee6be0fa8cf8841",
         "name": "",
-        "label": "chart",
+        "label": "pressure chart",
         "order": 1,
         "chartType": "line",
         "category": "",
@@ -487,7 +576,7 @@
         "removeOlderUnit": "3600",
         "removeOlderPoints": "",
         "colors": [
-            "#0095ff",
+            "#ff0000",
             "#ff0000",
             "#ff7f0e",
             "#2ca02c",
@@ -498,9 +587,9 @@
             "#c5b0d5"
         ],
         "textColor": [
-            "#666666"
+            "#ffffff"
         ],
-        "textColorDefault": true,
+        "textColorDefault": false,
         "gridColor": [
             "#e5e5e5"
         ],
@@ -509,7 +598,7 @@
         "height": "6",
         "className": "",
         "interpolation": "linear",
-        "x": 540,
+        "x": 570,
         "y": 740,
         "wires": [
             []
@@ -520,11 +609,11 @@
         "type": "ui-text",
         "z": "9c617a91ead5c9c3",
         "group": "eee6be0fa8cf8841",
-        "order": 4,
+        "order": 2,
         "width": "3",
         "height": "2",
         "name": "SYS",
-        "label": "text",
+        "label": "SYS",
         "format": "{{msg.payload}}",
         "layout": "col-center",
         "style": false,
@@ -546,7 +635,7 @@
         "width": "3",
         "height": "2",
         "name": "DIA",
-        "label": "text",
+        "label": "DIA",
         "format": "{{msg.payload}}",
         "layout": "col-center",
         "style": false,
@@ -564,11 +653,11 @@
         "type": "ui-text",
         "z": "9c617a91ead5c9c3",
         "group": "eee6be0fa8cf8841",
-        "order": 2,
+        "order": 4,
         "width": "3",
         "height": "2",
         "name": "MAP",
-        "label": "text",
+        "label": "MAP",
         "format": "{{msg.payload}}",
         "layout": "col-center",
         "style": false,
@@ -580,5 +669,342 @@
         "x": 590,
         "y": 680,
         "wires": []
+    },
+    {
+        "id": "342858d7b399b034",
+        "type": "ui-button",
+        "z": "9c617a91ead5c9c3",
+        "group": "c61f9fdcfb121fcd",
+        "name": "Zero Pressure Sensor",
+        "label": "Zero Pressure Sensor",
+        "order": 2,
+        "width": "3",
+        "height": "2",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-target",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "payload",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 200,
+        "y": 900,
+        "wires": [
+            [
+                "6485907aaa5396be"
+            ]
+        ]
+    },
+    {
+        "id": "ada7a79e1a21f33e",
+        "type": "ui-notification",
+        "z": "9c617a91ead5c9c3",
+        "ui": "25e9a4029c0aff9c",
+        "position": "center center",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "10",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": true,
+        "confirmText": "Confirm",
+        "raw": true,
+        "className": "",
+        "name": "are you sure",
+        "x": 630,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6b43b98d2fd9a609",
+        "type": "ui-markdown",
+        "z": "9c617a91ead5c9c3",
+        "group": "c61f9fdcfb121fcd",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "content": "### Zeroing Pressure Transducer\n\n1. Turn the stopcock off to the perfusate line.\n2. Remove the nonvented cap from the stopcock, opening it to air.\n3. **Press the zero button below.**\n4. Place a new, sterile cap on the stopcock.\n5. Turn the stopcock to open the transducer to the perfusate line. ",
+        "className": "",
+        "x": 110,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6485907aaa5396be",
+        "type": "function",
+        "z": "9c617a91ead5c9c3",
+        "name": "function 2",
+        "func": "msg.payload = \"<h1>Confirmation</h1> <p>Are you sure you want to zero?</b></p>\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 900,
+        "wires": [
+            [
+                "ada7a79e1a21f33e"
+            ]
+        ]
+    },
+    {
+        "id": "b25fe710b1019823",
+        "type": "ui-gauge",
+        "z": "9c617a91ead5c9c3",
+        "name": "temp gauge setup page",
+        "group": "ab5a955a20c797d7",
+        "order": 1,
+        "value": "payload.temp",
+        "valueType": "msg",
+        "width": 3,
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperature",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ff2600",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "34",
+                "color": "#ff9300",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "35",
+                "color": "#fffb00",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "36",
+                "color": "#00f900",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "38",
+                "color": "#fffb00",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "39",
+                "color": "#ff9300",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ff2600",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "20",
+        "max": "40",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 590,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4fc8a2c57f27f4fc",
+        "type": "ui-switch",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "label": "Pump On-Off Switch",
+        "group": "8454efb05038013c",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "mdi-power mdi-48px",
+        "oncolor": "#00ff00",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "mdi-power-plug-off mdi-48px",
+        "offcolor": "#ff0000",
+        "x": 180,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "99c966a84bb8531c",
+        "type": "ui-slider",
+        "z": "9c617a91ead5c9c3",
+        "group": "8454efb05038013c",
+        "name": "Pump Speed",
+        "label": "Pump Speed (mL/min)",
+        "tooltip": "",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "thumbLabel": "true",
+        "showTicks": "always",
+        "min": 0,
+        "max": "1000",
+        "step": "10",
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": true,
+        "x": 150,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e33feaec7820ee72",
+        "type": "ui-template",
+        "z": "9c617a91ead5c9c3",
+        "group": "",
+        "page": "4a06c9c93d0ab176",
+        "ui": "",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "body {\n    font-family: monospace;\n}",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "page:style",
+        "className": "",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "38ead5d90b49a858",
+        "type": "ui-switch",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "label": "Set Pump Direction",
+        "group": "8454efb05038013c",
+        "order": 4,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "mdi-restore mdi-48px",
+        "oncolor": "#ffffff",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "mdi-reload mdi-48px",
+        "offcolor": "#ffffff",
+        "x": 190,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b837e4287355fdfc",
+        "type": "ui-button-group",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "group": "8454efb05038013c",
+        "order": 1,
+        "width": "3",
+        "height": 1,
+        "label": "Pump On-Off Switch",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": false,
+        "passthru": false,
+        "options": [
+            {
+                "label": "On",
+                "icon": "mdi-power mdi-48px",
+                "value": "true",
+                "valueType": "bool",
+                "color": "#00f900"
+            },
+            {
+                "label": "Off",
+                "icon": "mdi-power mdi-48px",
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ff2600"
+            }
+        ],
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 1000,
+        "wires": [
+            []
+        ]
     }
 ]
