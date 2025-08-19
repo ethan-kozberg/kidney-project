@@ -258,6 +258,56 @@
         "responsetimeout": 10000
     },
     {
+        "id": "4c2a42f6bdeaf169",
+        "type": "ui-page",
+        "name": "Data Logging",
+        "ui": "25e9a4029c0aff9c",
+        "path": "/page3",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "5214809e76c77a9c",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 3,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "7163d48c7648fe22",
+        "type": "ui-group",
+        "name": "Record Data",
+        "page": "4c2a42f6bdeaf169",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
         "id": "af1055a549205611",
         "type": "serial in",
         "z": "9c617a91ead5c9c3",
@@ -285,7 +335,8 @@
             [
                 "51cf3e5d19e7cc44",
                 "7245ea217c743ad6",
-                "b25fe710b1019823"
+                "b25fe710b1019823",
+                "392690e468e74e98"
             ]
         ]
     },
@@ -361,8 +412,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 610,
-        "y": 260,
+        "x": 570,
+        "y": 100,
         "wires": [
             []
         ]
@@ -380,7 +431,7 @@
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 400,
+        "y": 420,
         "wires": [
             [
                 "30c07574f0518963"
@@ -407,7 +458,7 @@
         "xmin": "",
         "xmax": "",
         "yAxisLabel": "temperature (*C)",
-        "yAxisProperty": "payload",
+        "yAxisProperty": "payload.temp",
         "yAxisPropertyType": "msg",
         "ymin": "",
         "ymax": "",
@@ -444,7 +495,7 @@
         "className": "",
         "interpolation": "linear",
         "x": 690,
-        "y": 400,
+        "y": 420,
         "wires": [
             []
         ]
@@ -478,7 +529,8 @@
                 "9465aef0b11ae1ce",
                 "bb2fe21995a60ff9",
                 "71ad3391f0fb760c",
-                "c4a4f3374ef934a7"
+                "c4a4f3374ef934a7",
+                "f24acdf6ac2c3a82"
             ]
         ]
     },
@@ -494,12 +546,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
+        "x": 500,
         "y": 540,
         "wires": [
             [
-                "57e5b55dd50650ad",
-                "8736f9ee0b203013"
+                "e7d7c351ce26f670"
             ]
         ]
     },
@@ -507,6 +558,7 @@
         "id": "bb2fe21995a60ff9",
         "type": "function",
         "z": "9c617a91ead5c9c3",
+        "d": true,
         "name": "diastolic",
         "func": "\nreturn { payload: msg.payload.diastolic }\n",
         "outputs": 1,
@@ -527,6 +579,7 @@
         "id": "71ad3391f0fb760c",
         "type": "function",
         "z": "9c617a91ead5c9c3",
+        "d": true,
         "name": "MAP",
         "func": "\n\nreturn { payload: msg.payload.MAP }",
         "outputs": 1,
@@ -559,7 +612,7 @@
         "y": 740,
         "wires": [
             [
-                "9b4e3e9b8fecfb8c"
+                "6d1b8a58f85f6f26"
             ]
         ]
     },
@@ -619,8 +672,8 @@
         "height": "6",
         "className": "",
         "interpolation": "linear",
-        "x": 590,
-        "y": 740,
+        "x": 760,
+        "y": 760,
         "wires": [
             []
         ]
@@ -634,16 +687,16 @@
         "width": "3",
         "height": "2",
         "name": "",
-        "label": "SYST",
+        "label": "BP",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "style": true,
         "font": "Arial,Arial,Helvetica,sans-serif",
-        "fontSize": "48",
+        "fontSize": "64",
         "color": "#ff2600",
         "wrapText": false,
         "className": "",
-        "x": 630,
+        "x": 850,
         "y": 500,
         "wires": []
     },
@@ -651,6 +704,7 @@
         "id": "b8a06cd1bf4f6333",
         "type": "ui-text",
         "z": "9c617a91ead5c9c3",
+        "d": true,
         "group": "eee6be0fa8cf8841",
         "order": 3,
         "width": "3",
@@ -673,6 +727,7 @@
         "id": "e98e97b45868c909",
         "type": "ui-text",
         "z": "9c617a91ead5c9c3",
+        "d": true,
         "group": "eee6be0fa8cf8841",
         "order": 4,
         "width": "3",
@@ -866,7 +921,7 @@
         "styleGlow": false,
         "className": "",
         "x": 590,
-        "y": 180,
+        "y": 40,
         "wires": [
             []
         ]
@@ -1085,7 +1140,7 @@
         "type": "function",
         "z": "9c617a91ead5c9c3",
         "name": "function 3",
-        "func": "if(msg.payload === \"confirm_clicked\") {\n    msg.payload = 'z';\n    return msg;\n } else {\n   msg.payload = 'a';\n   return msg;\n }",
+        "func": "if(msg.payload === \"confirm_clicked\") {\n    msg.payload = 'z';\n } else {\n   msg.payload = 'a';\n }\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1109,7 +1164,7 @@
         "width": "3",
         "height": "2",
         "name": "",
-        "label": "SYST",
+        "label": "BP",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "style": true,
@@ -1118,8 +1173,408 @@
         "color": "#ff2600",
         "wrapText": false,
         "className": "",
-        "x": 670,
+        "x": 870,
         "y": 560,
+        "wires": []
+    },
+    {
+        "id": "e4191f60cdedbe34",
+        "type": "function",
+        "z": "9c617a91ead5c9c3",
+        "name": "function 4",
+        "func": "var filename = \"/Users/ethankozberg/Documents/programmingMisc/Kidney Test CSV Outputs/\" + msg.topic\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a1a0f11751b5bfed",
+        "type": "ui-text-input",
+        "z": "9c617a91ead5c9c3",
+        "group": "7163d48c7648fe22",
+        "name": "",
+        "label": "Temperature Sensor Data Name",
+        "order": 1,
+        "width": "5",
+        "height": "1",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 930,
+        "y": 40,
+        "wires": [
+            [
+                "e4191f60cdedbe34",
+                "3f739413fb386f1b"
+            ]
+        ]
+    },
+    {
+        "id": "3f739413fb386f1b",
+        "type": "ui-text",
+        "z": "9c617a91ead5c9c3",
+        "group": "7163d48c7648fe22",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "name": "",
+        "label": ".csv",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 1150,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "c22b6e410da2b395",
+        "type": "ui-text-input",
+        "z": "9c617a91ead5c9c3",
+        "group": "7163d48c7648fe22",
+        "name": "",
+        "label": "Pressure Sensor Data Name",
+        "order": 3,
+        "width": "5",
+        "height": "1",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 1080,
+        "y": 140,
+        "wires": [
+            [
+                "1d5d278dec425991"
+            ]
+        ]
+    },
+    {
+        "id": "1d5d278dec425991",
+        "type": "ui-text",
+        "z": "9c617a91ead5c9c3",
+        "group": "7163d48c7648fe22",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "name": "",
+        "label": ".csv",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 1290,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "392690e468e74e98",
+        "type": "csv",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "spec": "rfc",
+        "sep": ":",
+        "hdrin": false,
+        "hdrout": "once",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 670,
+        "y": 320,
+        "wires": [
+            [
+                "bef9077966db4957",
+                "fb5a591c4d6e0ba3"
+            ]
+        ]
+    },
+    {
+        "id": "bef9077966db4957",
+        "type": "debug",
+        "z": "9c617a91ead5c9c3",
+        "d": true,
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "fb5a591c4d6e0ba3",
+        "type": "file",
+        "z": "9c617a91ead5c9c3",
+        "name": "testtemps",
+        "filename": "/Users/ethankozberg/Documents/programmingMisc/Kidney Test CSV Outputs/testtemps.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 880,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "12c4f09464c922ee",
+        "type": "file",
+        "z": "9c617a91ead5c9c3",
+        "name": "testpressures",
+        "filename": "/Users/ethankozberg/Documents/programmingMisc/Kidney Test CSV Outputs/testpressures.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 520,
+        "y": 820,
+        "wires": [
+            [
+                "f07b10246bafb318"
+            ]
+        ]
+    },
+    {
+        "id": "f24acdf6ac2c3a82",
+        "type": "csv",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "spec": "rfc",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 330,
+        "y": 820,
+        "wires": [
+            [
+                "12c4f09464c922ee"
+            ]
+        ]
+    },
+    {
+        "id": "f07b10246bafb318",
+        "type": "debug",
+        "z": "9c617a91ead5c9c3",
+        "d": true,
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "5ea8cce21eb042bf",
+        "type": "inject",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "iso",
+        "payloadType": "date",
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "71d64790a78f93e8",
+                "e02ee87f9cddbbc2"
+            ]
+        ]
+    },
+    {
+        "id": "71d64790a78f93e8",
+        "type": "csv",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "spec": "rfc",
+        "sep": "\\t",
+        "hdrin": "",
+        "hdrout": "once",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 810,
+        "y": 240,
+        "wires": [
+            [
+                "10783c51ed93fe7c"
+            ]
+        ]
+    },
+    {
+        "id": "10783c51ed93fe7c",
+        "type": "file",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "filename": "/Users/ethankozberg/Documents/programmingMisc/Kidney Test CSV Outputs/testtimestamps.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1180,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e7d7c351ce26f670",
+        "type": "delay",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 540,
+        "wires": [
+            [
+                "57e5b55dd50650ad",
+                "8736f9ee0b203013"
+            ]
+        ]
+    },
+    {
+        "id": "6d1b8a58f85f6f26",
+        "type": "delay",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "5",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 530,
+        "y": 740,
+        "wires": [
+            [
+                "9b4e3e9b8fecfb8c"
+            ]
+        ]
+    },
+    {
+        "id": "e02ee87f9cddbbc2",
+        "type": "json",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "6eebd8bf33f1fc22"
+            ]
+        ]
+    },
+    {
+        "id": "6eebd8bf33f1fc22",
+        "type": "debug",
+        "z": "9c617a91ead5c9c3",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 300,
         "wires": []
     }
 ]
