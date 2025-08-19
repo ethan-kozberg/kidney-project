@@ -10,7 +10,7 @@
     {
         "id": "a17c9063394ce04e",
         "type": "serial-port",
-        "name": "",
+        "name": "temp serial",
         "serialport": "/dev/cu.usbmodemDCDA0C21C5BC2",
         "serialbaud": "9600",
         "databits": 8,
@@ -129,7 +129,7 @@
         "width": "12",
         "height": 1,
         "order": 2,
-        "showTitle": true,
+        "showTitle": false,
         "className": "",
         "visible": "true",
         "disabled": "false",
@@ -143,7 +143,7 @@
         "width": "12",
         "height": 1,
         "order": 1,
-        "showTitle": true,
+        "showTitle": false,
         "className": "",
         "visible": "true",
         "disabled": "false",
@@ -238,16 +238,36 @@
         "className": ""
     },
     {
+        "id": "071a1f13397ea2c4",
+        "type": "serial-port",
+        "name": "pressure serial",
+        "serialport": "/dev/cu.usbmodemDCDA0C210EC42",
+        "serialbaud": "9600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
         "id": "af1055a549205611",
         "type": "serial in",
         "z": "9c617a91ead5c9c3",
         "name": "Temps-Mac",
         "serial": "a17c9063394ce04e",
-        "x": 150,
+        "x": 110,
         "y": 340,
         "wires": [
             [
-                "d4f158d279f12ee6"
+                "48f59226e559feba"
             ]
         ]
     },
@@ -434,12 +454,12 @@
         "type": "serial in",
         "z": "9c617a91ead5c9c3",
         "name": "Pressure-In",
-        "serial": "",
+        "serial": "071a1f13397ea2c4",
         "x": 150,
         "y": 540,
         "wires": [
             [
-                "a02bf7650814ff04"
+                "4a2b9eaff5488220"
             ]
         ]
     },
@@ -467,7 +487,7 @@
         "type": "function",
         "z": "9c617a91ead5c9c3",
         "name": "systolic",
-        "func": "\nreturn { payload: msg.payload.systolic }",
+        "func": "\nreturn { payload: msg.payload.Pressure }",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -478,7 +498,8 @@
         "y": 540,
         "wires": [
             [
-                "57e5b55dd50650ad"
+                "57e5b55dd50650ad",
+                "8736f9ee0b203013"
             ]
         ]
     },
@@ -527,7 +548,7 @@
         "type": "function",
         "z": "9c617a91ead5c9c3",
         "name": "pressure",
-        "func": "\n\nreturn { payload: msg.payload.pressure }",
+        "func": "\n\nreturn { payload: msg.payload.Pressure }",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -548,7 +569,7 @@
         "z": "9c617a91ead5c9c3",
         "group": "eee6be0fa8cf8841",
         "name": "",
-        "label": "pressure chart",
+        "label": "PRESSURE (mmHg)",
         "order": 1,
         "chartType": "line",
         "category": "",
@@ -558,10 +579,10 @@
         "xAxisPropertyType": "timestamp",
         "xAxisType": "time",
         "xAxisFormat": "",
-        "xAxisFormatType": "auto",
+        "xAxisFormatType": "HH:mm:ss",
         "xmin": "",
         "xmax": "",
-        "yAxisLabel": "",
+        "yAxisLabel": "mmHg",
         "yAxisProperty": "payload",
         "yAxisPropertyType": "msg",
         "ymin": "",
@@ -569,11 +590,11 @@
         "bins": 10,
         "action": "append",
         "stackSeries": false,
-        "pointShape": "circle",
+        "pointShape": "false",
         "pointRadius": 4,
         "showLegend": true,
         "removeOlder": 1,
-        "removeOlderUnit": "3600",
+        "removeOlderUnit": "60",
         "removeOlderPoints": "",
         "colors": [
             "#ff0000",
@@ -598,7 +619,7 @@
         "height": "6",
         "className": "",
         "interpolation": "linear",
-        "x": 570,
+        "x": 590,
         "y": 740,
         "wires": [
             []
@@ -612,18 +633,18 @@
         "order": 2,
         "width": "3",
         "height": "2",
-        "name": "SYS",
-        "label": "SYS",
+        "name": "",
+        "label": "SYST",
         "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
+        "layout": "row-spread",
+        "style": true,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": "48",
+        "color": "#ff2600",
         "wrapText": false,
         "className": "",
         "x": 630,
-        "y": 540,
+        "y": 500,
         "wires": []
     },
     {
@@ -634,14 +655,14 @@
         "order": 3,
         "width": "3",
         "height": "2",
-        "name": "DIA",
-        "label": "DIA",
+        "name": "",
+        "label": "DIAS",
         "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
+        "layout": "row-spread",
+        "style": true,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": "48",
+        "color": "#ff2600",
         "wrapText": false,
         "className": "",
         "x": 630,
@@ -656,14 +677,14 @@
         "order": 4,
         "width": "3",
         "height": "2",
-        "name": "MAP",
+        "name": "",
         "label": "MAP",
         "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
+        "layout": "row-spread",
+        "style": true,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": "48",
+        "color": "#ff2600",
         "wrapText": false,
         "className": "",
         "x": 590,
@@ -730,7 +751,9 @@
         "x": 630,
         "y": 900,
         "wires": [
-            []
+            [
+                "d2d8b852d8c821de"
+            ]
         ]
     },
     {
@@ -925,7 +948,7 @@
         "width": 0,
         "height": 0,
         "head": "",
-        "format": "body {\n    font-family: monospace;\n}",
+        "format": "body {\n    font-family: Arial, Helvetica, sans-serif;\n}",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
@@ -1006,5 +1029,97 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "48f59226e559feba",
+        "type": "function",
+        "z": "9c617a91ead5c9c3",
+        "name": "trim newline",
+        "func": "if (msg.payload.trim() === \"\") {\n    return;\n}\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 280,
+        "wires": [
+            [
+                "d4f158d279f12ee6"
+            ]
+        ]
+    },
+    {
+        "id": "4a2b9eaff5488220",
+        "type": "function",
+        "z": "9c617a91ead5c9c3",
+        "name": "trim newline",
+        "func": "if (msg.payload.trim() === \"\") {\n    return;\n}\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 480,
+        "wires": [
+            [
+                "a02bf7650814ff04"
+            ]
+        ]
+    },
+    {
+        "id": "3b59a7d71e4dcdc1",
+        "type": "serial out",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "serial": "071a1f13397ea2c4",
+        "x": 840,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "d2d8b852d8c821de",
+        "type": "function",
+        "z": "9c617a91ead5c9c3",
+        "name": "function 3",
+        "func": "if(msg.payload === \"confirm_clicked\") {\n    msg.payload = 'z';\n } else {\n   msg.payload = 'a';\n }\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 980,
+        "wires": [
+            [
+                "3b59a7d71e4dcdc1"
+            ]
+        ]
+    },
+    {
+        "id": "8736f9ee0b203013",
+        "type": "ui-text",
+        "z": "9c617a91ead5c9c3",
+        "group": "ab5a955a20c797d7",
+        "order": 2,
+        "width": "3",
+        "height": "2",
+        "name": "",
+        "label": "SYST",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": true,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": "48",
+        "color": "#ff2600",
+        "wrapText": false,
+        "className": "",
+        "x": 670,
+        "y": 560,
+        "wires": []
     }
 ]
