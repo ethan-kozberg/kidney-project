@@ -22,8 +22,8 @@ float pressure_old = 2000;
 // millis setup
 unsigned long previousMillis = 0;  // will store last time sampling was updated
 unsigned long previousPrintMillis = 0;  // will store last time print sampling was updated
-const long interval = 100;  // interval at which to sample (milliseconds)
-const long printInterval = 1000; // interval at which to print (milliseconds)
+const long interval = 50;  // interval at which to sample (milliseconds)
+const long printInterval = 50; // interval at which to print (milliseconds)
 
 int once_counter = 0; // counter for instant zeroing
 
@@ -57,7 +57,7 @@ void loop() {
     recvOneChar();
     showNewData();
     pressure = pressure-Poffset;
-  
+
   }
   
   // Print
