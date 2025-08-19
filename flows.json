@@ -1353,6 +1353,7 @@
         "id": "fb5a591c4d6e0ba3",
         "type": "file",
         "z": "9c617a91ead5c9c3",
+        "d": true,
         "name": "testtemps",
         "filename": "/Users/ethankozberg/Documents/programmingMisc/Kidney Test CSV Outputs/testtemps.csv",
         "filenameType": "str",

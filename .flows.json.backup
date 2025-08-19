@@ -1353,6 +1353,7 @@
         "id": "fb5a591c4d6e0ba3",
         "type": "file",
         "z": "9c617a91ead5c9c3",
+        "d": true,
         "name": "testtemps",
         "filename": "/Users/ethankozberg/Documents/programmingMisc/Kidney Test CSV Outputs/testtemps.csv",
         "filenameType": "str",
@@ -1370,6 +1371,7 @@
         "id": "12c4f09464c922ee",
         "type": "file",
         "z": "9c617a91ead5c9c3",
+        "d": true,
         "name": "testpressures",
         "filename": "/Users/ethankozberg/Documents/programmingMisc/Kidney Test CSV Outputs/testpressures.csv",
         "filenameType": "str",
@@ -1448,8 +1450,7 @@
         "y": 240,
         "wires": [
             [
-                "71d64790a78f93e8",
-                "e02ee87f9cddbbc2"
+                "71d64790a78f93e8"
             ]
         ]
     },
@@ -1469,8 +1470,8 @@
         "strings": false,
         "include_empty_strings": "",
         "include_null_values": "",
-        "x": 810,
-        "y": 240,
+        "x": 730,
+        "y": 200,
         "wires": [
             [
                 "10783c51ed93fe7c"
@@ -1481,6 +1482,7 @@
         "id": "10783c51ed93fe7c",
         "type": "file",
         "z": "9c617a91ead5c9c3",
+        "d": true,
         "name": "",
         "filename": "/Users/ethankozberg/Documents/programmingMisc/Kidney Test CSV Outputs/testtimestamps.csv",
         "filenameType": "str",
@@ -1544,37 +1546,5 @@
                 "9b4e3e9b8fecfb8c"
             ]
         ]
-    },
-    {
-        "id": "e02ee87f9cddbbc2",
-        "type": "json",
-        "z": "9c617a91ead5c9c3",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 670,
-        "y": 200,
-        "wires": [
-            [
-                "6eebd8bf33f1fc22"
-            ]
-        ]
-    },
-    {
-        "id": "6eebd8bf33f1fc22",
-        "type": "debug",
-        "z": "9c617a91ead5c9c3",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1060,
-        "y": 300,
-        "wires": []
     }
 ]
