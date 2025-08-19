@@ -19,6 +19,12 @@ float Poffset = 0; // offset from zero
 float pressure = 2000; // initial pressure
 float pressure_old = 2000;
 
+// millis setup
+unsigned long previousMillis = 0;  // will store last time sampling was updated
+unsigned long previousPrintMillis = 0;  // will store last time print sampling was updated
+const long interval = 100;  // interval at which to sample (milliseconds)
+const long printInterval = 1000; // interval at which to print (milliseconds)
+
 int once_counter = 0; // counter for instant zeroing
 
 // Setup pressure sensor zero - character input
@@ -34,21 +40,34 @@ void setup() {
 void loop() {
 // put your main code here, to run repeatedly:
   
-  float rawValue = analogRead(analogPin); // Read the analog input
-  float voltage = (rawValue / ADC_STEPS) * V_REF; // Convert to voltage
-  float output = voltage;
-  pressure = ((output-Omin)*(Pmax-Pmin)/(Omax-Omin))+Pmin; // calculate pressure
+  unsigned long currentMillis = millis();
+  unsigned long currentPrintMillis = millis();
 
-  pressure_old = pressure;
-  recvOneChar();
-  showNewData();
-  pressure = pressure-Poffset;
+  // Sample
+  if (currentMillis - previousMillis >= interval) {
+    // save the last time we sampled
+    previousMillis = currentMillis;
 
+    float rawValue = analogRead(analogPin); // Read the analog input
+    float voltage = (rawValue / ADC_STEPS) * V_REF; // Convert to voltage
+    float output = voltage;
+    pressure = ((output-Omin)*(Pmax-Pmin)/(Omax-Omin))+Pmin; // calculate pressure
 
+    pressure_old = pressure;
+    recvOneChar();
+    showNewData();
+    pressure = pressure-Poffset;
+  
+  }
+  
   // Print
-  Serial.print("{\"Pressure\":");
-  Serial.print(pressure,1); // Print pressure with 1 decimal places
-  Serial.println("}");
+  if (currentPrintMillis - previousPrintMillis >= printInterval) {
+  // save the last time we sampled
+    previousPrintMillis = currentPrintMillis;
+    Serial.print("{\"Pressure\":");
+    Serial.print(pressure,1); // Print pressure with 1 decimal places
+    Serial.println("}");
+  }
   
   // systolic and diastolic 
 
@@ -58,7 +77,7 @@ void loop() {
   //}
   //once_counter = 1;
   
- delay(1000); 
+//delay(1000); 
 }
 
 // functions
