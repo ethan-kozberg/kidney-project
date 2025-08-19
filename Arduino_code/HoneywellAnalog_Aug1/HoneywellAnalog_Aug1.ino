@@ -15,57 +15,88 @@ float Omax = 0.9*V_REF; // Output at maximum pressure
 float Omin = 0.1*V_REF; // Output at minimum pressure
 float Pmax = 1*51.7149; // 1 psi to mmhg
 float Pmin = -1*51.7149; // -1 psi to mmhg
-float Poffset = 15; // offset from zero
-int once_counter = 0;
+float Poffset = 0; // offset from zero
+float pressure = 2000; // initial pressure
+float pressure_old = 2000;
 
-// Setup pressure sensor zero
-int incomingByte = 0;
+// millis setup
+unsigned long previousMillis = 0;  // will store last time sampling was updated
+unsigned long previousPrintMillis = 0;  // will store last time print sampling was updated
+const long interval = 50;  // interval at which to sample (milliseconds)
+const long printInterval = 50; // interval at which to print (milliseconds)
+
+int once_counter = 0; // counter for instant zeroing
+
+// Setup pressure sensor zero - character input
+char receivedChar = 0;
+boolean newData = false;
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-
 }
 
+
 void loop() {
+// put your main code here, to run repeatedly:
   
-  // put your main code here, to run repeatedly:
-  int rawValue = analogRead(analogPin); // Read the analog input
-  float voltage = (rawValue / ADC_STEPS) * V_REF; // Convert to voltage
+  unsigned long currentMillis = millis();
+  unsigned long currentPrintMillis = millis();
 
-  Serial.print("Voltage: ");
-  Serial.print(voltage, 2); // Print voltage with 3 decimal places
-  Serial.println(" V");
+  // Sample
+  if (currentMillis - previousMillis >= interval) {
+    // save the last time we sampled
+    previousMillis = currentMillis;
 
-  float output = voltage;
-  float pressure = ((output-Omin)*(Pmax-Pmin)/(Omax-Omin))+Pmin-Poffset;
-  Serial.print("Pressure ");
-  Serial.print(pressure, 3); // Print pressure with 3 decimal places
-  Serial.println(" mmHg");
+    float rawValue = analogRead(analogPin); // Read the analog input
+    float voltage = (rawValue / ADC_STEPS) * V_REF; // Convert to voltage
+    float output = voltage;
+    pressure = ((output-Omin)*(Pmax-Pmin)/(Omax-Omin))+Pmin; // calculate pressure
 
+    pressure_old = pressure;
+    recvOneChar();
+    showNewData();
+    pressure = pressure-Poffset;
+
+  }
+  
+  // Print
+  if (currentPrintMillis - previousPrintMillis >= printInterval) {
+  // save the last time we sampled
+    previousPrintMillis = currentPrintMillis;
+    Serial.print("{\"Pressure\":");
+    Serial.print(pressure,1); // Print pressure with 1 decimal places
+    Serial.println("}");
+  }
+  
   // systolic and diastolic 
-  
-
-  // check if zero button is pressed
-  //if (Serial.available() > 0) {
-
-    // read the incoming byte:
-  //  incomingByte = Serial.read();
-    // say what you got:
-  //  Serial.print("I received: ");
-  //  Serial.println(incomingByte, DEC);
-  //  Poffset = pressure;
-  //}
 
   // instant zeroing
   //if(once_counter < 1) {
   //  Poffset = pressure;
   //}
   //once_counter = 1;
-
-
-  // if button is pressed (eg digital high)
-  // then set poffset to current pressure
   
-  delay(10); // 3 sec delay
+//delay(1000); 
+}
+
+// functions
+void recvOneChar() {
+    if (Serial.available() > 0) {
+        receivedChar = Serial.read();
+        newData = true;
+    }
+}
+
+void showNewData() {
+  
+    if (newData == true) {
+      if (receivedChar == 'z') {
+        Poffset = pressure_old;
+        //Serial.print("This just in ... ");
+        //Serial.println(Poffset);
+      }
+      newData = false;
+    }
+    
 }
