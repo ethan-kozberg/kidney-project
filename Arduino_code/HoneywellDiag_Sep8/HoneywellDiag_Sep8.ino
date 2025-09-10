@@ -1,9 +1,9 @@
 #include<Arduino.h>
-#include<iostream>
+//#include<iostream>
 #include<limits.h>
 
 // Constants
-const float V_REF = 5.172;     // Analog reference voltage (e.g., 5V or 3.3V)
+const float V_REF = 5.1;     // Analog reference voltage (e.g., 5V or 3.3V)
 const float R_BITS = 10.0;   // ADC resolution (bits)
 const float ADC_STEPS = (1 << int(R_BITS)) - 1; // Number of steps (2^R_BITS - 1)
 
@@ -18,6 +18,8 @@ float Pmin = -1*51.7149; // -1 psi to mmhg
 float Poffset = 0; // offset from zero
 float pressure = 2000; // initial pressure
 float pressure_old = 2000;
+
+float output = 0;
 
 // millis setup
 unsigned long previousMillis = 0;  // will store last time sampling was updated
@@ -50,7 +52,7 @@ void loop() {
 
     float rawValue = analogRead(analogPin); // Read the analog input
     float voltage = (rawValue / ADC_STEPS) * V_REF; // Convert to voltage
-    float output = voltage;
+    output = voltage;
     pressure = ((output-Omin)*(Pmax-Pmin)/(Omax-Omin))+Pmin; // calculate pressure
 
     pressure_old = pressure;
@@ -58,7 +60,9 @@ void loop() {
     showNewData();
     pressure = pressure-Poffset;
 
-    // Print
+  }
+  
+   // Print
   if (currentPrintMillis - previousPrintMillis >= printInterval) {
   // save the last time we sampled
     previousPrintMillis = currentPrintMillis;
@@ -67,9 +71,6 @@ void loop() {
     Serial.println("}");
     Serial.println(output);
   }
-
-  }
-  
   
   
   // systolic and diastolic 
