@@ -30,7 +30,9 @@ void loop() {
 //  Serial.print("Ratio = "); Serial.println(ratio,8);
   //Serial.print("Resistance = "); Serial.println(RREF*ratio,8);
   float temps = thermo.temperature(RNOMINAL, RREF);
-  Serial.print("Temperature = "); Serial.println(temps);
+  Serial.print("{\"temp\":"); 
+  Serial.print(temps);
+  Serial.println("}");
 
 
   // Check and print any faults

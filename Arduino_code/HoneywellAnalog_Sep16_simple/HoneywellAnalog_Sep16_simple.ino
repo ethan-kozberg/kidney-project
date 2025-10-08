@@ -3,7 +3,7 @@
 #include<limits.h>
 
 // Constants
-const float V_REF = 5.172;     // Analog reference voltage (e.g., 5V or 3.3V)
+const float V_REF = 5.1;     // Analog reference voltage (e.g., 5V or 3.3V)
 const float R_BITS = 10.0;   // ADC resolution (bits)
 const float ADC_STEPS = (1 << int(R_BITS)) - 1; // Number of steps (2^R_BITS - 1)
 
@@ -23,7 +23,7 @@ float pressure_old = 2000;
 unsigned long previousMillis = 0;  // will store last time sampling was updated
 unsigned long previousPrintMillis = 0;  // will store last time print sampling was updated
 const long interval = 50;  // interval at which to sample (milliseconds)
-const long printInterval = 1000; // interval at which to print (milliseconds)
+const long printInterval = 50; // interval at which to print (milliseconds)
 
 int once_counter = 0; // counter for instant zeroing
 
@@ -65,7 +65,7 @@ void loop() {
     Serial.print("{\"Pressure\":");
     Serial.print(pressure,1); // Print pressure with 1 decimal places
     Serial.println("}");
-    Serial.println(output);
+    //Serial.println(output);
   }
 
   }
