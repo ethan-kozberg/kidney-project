@@ -5,9 +5,9 @@
 
 // circular buffer
 CircularBuffer<float, 50> buffer; // running average buffer
-CircularBuffer<float, 50> pulse_buffer; // pulse buffer
-int INTERVAL = 10; // ms interval for running average sampling
-int PULSE_INTERVAL = 50; // ms interval for pulse sampling (around nyquist freq)
+CircularBuffer<float, 7> pulse_buffer; // pulse buffer
+int INTERVAL = 25; // ms interval for running average sampling
+int PULSE_INTERVAL = 200; // ms interval for pulse sampling (faster than nyquist freq)
 
 // timer setup
 unsigned long _time = 0;
@@ -35,6 +35,7 @@ void setup() {
   Serial.begin(9600);
   //pinMode(A0, INPUT);
   _time = millis();
+  _pulsetime = millis();
 }
 
 
@@ -52,7 +53,7 @@ void loop() {
 
   buffer.push(pressure);
 
-  if (millis() - _pulsetime > PULSE_INTERVAL) {
+  if (millis() - _pulsetime >= PULSE_INTERVAL) {
     _pulsetime = millis();
     float sys = 0.0;
     float dia = 0.0;
@@ -61,7 +62,7 @@ void loop() {
     float pulse_avg = 0.0;
     
     // running average filter: find average at fast ms interval
-    if (millis() - _time > INTERVAL) {
+    if (millis() - _time >= INTERVAL) {
       avg = 0.0;
       _time = millis();
 
@@ -72,7 +73,7 @@ void loop() {
         }
     }
 
-    pulse_buffer.push(avg);
+    pulse_buffer.push(avg); // push filtered data to the pulse buffer
 
     // now do buffer for sys and dia
     using index_t = decltype(pulse_buffer)::index_t;
