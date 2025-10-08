@@ -28,6 +28,26 @@
         "responsetimeout": 10000
     },
     {
+        "id": "071a1f13397ea2c4",
+        "type": "serial-port",
+        "name": "pressure serial",
+        "serialport": "/dev/cu.usbmodemDCDA0C210EC42",
+        "serialbaud": "9600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
         "id": "25e9a4029c0aff9c",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -122,34 +142,6 @@
         "disabled": "false"
     },
     {
-        "id": "28d4bbdde9f953ac",
-        "type": "ui-group",
-        "name": "Temperature",
-        "page": "4a06c9c93d0ab176",
-        "width": "12",
-        "height": 1,
-        "order": 2,
-        "showTitle": false,
-        "className": "",
-        "visible": "true",
-        "disabled": "false",
-        "groupType": "default"
-    },
-    {
-        "id": "eee6be0fa8cf8841",
-        "type": "ui-group",
-        "name": "Pressure",
-        "page": "4a06c9c93d0ab176",
-        "width": "12",
-        "height": 1,
-        "order": 1,
-        "showTitle": false,
-        "className": "",
-        "visible": "true",
-        "disabled": "false",
-        "groupType": "default"
-    },
-    {
         "id": "59183145f8d0875c",
         "type": "ui-page",
         "name": "Setup",
@@ -184,6 +176,70 @@
         "className": "",
         "visible": "true",
         "disabled": "false"
+    },
+    {
+        "id": "4c2a42f6bdeaf169",
+        "type": "ui-page",
+        "name": "Data Logging",
+        "ui": "25e9a4029c0aff9c",
+        "path": "/page3",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "5214809e76c77a9c",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 3,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "28d4bbdde9f953ac",
+        "type": "ui-group",
+        "name": "Temperature",
+        "page": "4a06c9c93d0ab176",
+        "width": "12",
+        "height": 1,
+        "order": 2,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "eee6be0fa8cf8841",
+        "type": "ui-group",
+        "name": "Pressure",
+        "page": "4a06c9c93d0ab176",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
     },
     {
         "id": "c61f9fdcfb121fcd",
@@ -228,6 +284,20 @@
         "groupType": "default"
     },
     {
+        "id": "7163d48c7648fe22",
+        "type": "ui-group",
+        "name": "Record Data",
+        "page": "4c2a42f6bdeaf169",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
         "id": "8ab0188a40f8728a",
         "type": "ui-spacer",
         "group": "8454efb05038013c",
@@ -238,10 +308,10 @@
         "className": ""
     },
     {
-        "id": "071a1f13397ea2c4",
+        "id": "b1e78893ace54a85",
         "type": "serial-port",
-        "name": "pressure serial",
-        "serialport": "/dev/cu.usbmodemDCDA0C210EC42",
+        "name": "tempwin",
+        "serialport": "COM12",
         "serialbaud": "9600",
         "databits": 8,
         "parity": "none",
@@ -258,62 +328,52 @@
         "responsetimeout": 10000
     },
     {
-        "id": "4c2a42f6bdeaf169",
-        "type": "ui-page",
-        "name": "Data Logging",
-        "ui": "25e9a4029c0aff9c",
-        "path": "/page3",
-        "icon": "home",
-        "layout": "grid",
-        "theme": "5214809e76c77a9c",
-        "breakpoints": [
-            {
-                "name": "Default",
-                "px": "0",
-                "cols": "3"
-            },
-            {
-                "name": "Tablet",
-                "px": "576",
-                "cols": "6"
-            },
-            {
-                "name": "Small Desktop",
-                "px": "768",
-                "cols": "9"
-            },
-            {
-                "name": "Desktop",
-                "px": "1024",
-                "cols": "12"
-            }
-        ],
-        "order": 3,
-        "className": "",
-        "visible": "true",
-        "disabled": "false"
+        "id": "e8ae61f02d493bae",
+        "type": "serial-port",
+        "name": "pressurewin",
+        "serialport": "COM7",
+        "serialbaud": "9600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
     },
     {
-        "id": "7163d48c7648fe22",
-        "type": "ui-group",
-        "name": "Record Data",
-        "page": "4c2a42f6bdeaf169",
-        "width": 6,
-        "height": 1,
-        "order": 1,
-        "showTitle": true,
-        "className": "",
-        "visible": "true",
-        "disabled": "false",
-        "groupType": "default"
+        "id": "a41872622479fd26",
+        "type": "serial-port",
+        "name": "P-XIAOESP32C3",
+        "serialport": "COM13",
+        "serialbaud": "9600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
     },
     {
         "id": "af1055a549205611",
         "type": "serial in",
         "z": "9c617a91ead5c9c3",
-        "name": "Temps-Mac",
-        "serial": "a17c9063394ce04e",
-        "x": 110,
+        "name": "Temps",
+        "serial": "b1e78893ace54a85",
+        "x": 90,
         "y": 340,
         "wires": [
             [
@@ -341,84 +401,6 @@
         ]
     },
     {
-        "id": "51cf3e5d19e7cc44",
-        "type": "ui-gauge",
-        "z": "9c617a91ead5c9c3",
-        "name": "temp gauge",
-        "group": "28d4bbdde9f953ac",
-        "order": 2,
-        "value": "payload.temp",
-        "valueType": "msg",
-        "width": 3,
-        "height": "4",
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Temperature",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "°C",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#ff2600",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "34",
-                "color": "#ff9300",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "35",
-                "color": "#fffb00",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "36",
-                "color": "#00f900",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "38",
-                "color": "#fffb00",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "39",
-                "color": "#ff9300",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "40",
-                "color": "#ff2600",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": "20",
-        "max": "40",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 570,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "7245ea217c743ad6",
         "type": "function",
         "z": "9c617a91ead5c9c3",
@@ -439,73 +421,11 @@
         ]
     },
     {
-        "id": "30c07574f0518963",
-        "type": "ui-chart",
-        "z": "9c617a91ead5c9c3",
-        "group": "28d4bbdde9f953ac",
-        "name": "",
-        "label": "Temperature Chart",
-        "order": 1,
-        "chartType": "line",
-        "category": "",
-        "categoryType": "none",
-        "xAxisLabel": "timestamp",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "HH:mm:ss",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "temperature (*C)",
-        "yAxisProperty": "payload.temp",
-        "yAxisPropertyType": "msg",
-        "ymin": "",
-        "ymax": "",
-        "bins": 10,
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "false",
-        "pointRadius": 4,
-        "showLegend": true,
-        "removeOlder": 1,
-        "removeOlderUnit": "60",
-        "removeOlderPoints": "",
-        "colors": [
-            "#00fdff",
-            "#ff0000",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#ffffff"
-        ],
-        "textColorDefault": false,
-        "gridColor": [
-            "#0061ff"
-        ],
-        "gridColorDefault": true,
-        "width": "9",
-        "height": "4",
-        "className": "",
-        "interpolation": "linear",
-        "x": 690,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "70cb3ff3fbbea485",
         "type": "serial in",
         "z": "9c617a91ead5c9c3",
         "name": "Pressure-In",
-        "serial": "071a1f13397ea2c4",
+        "serial": "a41872622479fd26",
         "x": 150,
         "y": 540,
         "wires": [
@@ -539,7 +459,7 @@
         "type": "function",
         "z": "9c617a91ead5c9c3",
         "name": "systolic",
-        "func": "\nreturn { payload: msg.payload.Pressure }",
+        "func": "\nreturn { payload: msg.payload.SYS }",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -558,20 +478,19 @@
         "id": "bb2fe21995a60ff9",
         "type": "function",
         "z": "9c617a91ead5c9c3",
-        "d": true,
         "name": "diastolic",
-        "func": "\nreturn { payload: msg.payload.diastolic }\n",
+        "func": "\nreturn { payload: msg.payload.DIA }\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
+        "x": 500,
         "y": 600,
         "wires": [
             [
-                "b8a06cd1bf4f6333"
+                "561a2f5ae4aa7898"
             ]
         ]
     },
@@ -579,7 +498,6 @@
         "id": "71ad3391f0fb760c",
         "type": "function",
         "z": "9c617a91ead5c9c3",
-        "d": true,
         "name": "MAP",
         "func": "\n\nreturn { payload: msg.payload.MAP }",
         "outputs": 1,
@@ -588,11 +506,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
-        "y": 680,
+        "x": 490,
+        "y": 660,
         "wires": [
             [
-                "e98e97b45868c909"
+                "158e7a7c7c9170b1"
             ]
         ]
     },
@@ -601,7 +519,7 @@
         "type": "function",
         "z": "9c617a91ead5c9c3",
         "name": "pressure",
-        "func": "\n\nreturn { payload: msg.payload.Pressure }",
+        "func": "\n\nreturn { payload: msg.payload.AVG }",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -614,218 +532,6 @@
             [
                 "6d1b8a58f85f6f26"
             ]
-        ]
-    },
-    {
-        "id": "9b4e3e9b8fecfb8c",
-        "type": "ui-chart",
-        "z": "9c617a91ead5c9c3",
-        "group": "eee6be0fa8cf8841",
-        "name": "",
-        "label": "PRESSURE (mmHg)",
-        "order": 1,
-        "chartType": "line",
-        "category": "",
-        "categoryType": "none",
-        "xAxisLabel": "",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "HH:mm:ss",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "mmHg",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "",
-        "ymax": "",
-        "bins": 10,
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "false",
-        "pointRadius": 4,
-        "showLegend": true,
-        "removeOlder": 1,
-        "removeOlderUnit": "60",
-        "removeOlderPoints": "",
-        "colors": [
-            "#ff0000",
-            "#ff0000",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#ffffff"
-        ],
-        "textColorDefault": false,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": "9",
-        "height": "6",
-        "className": "",
-        "interpolation": "linear",
-        "x": 760,
-        "y": 760,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "57e5b55dd50650ad",
-        "type": "ui-text",
-        "z": "9c617a91ead5c9c3",
-        "group": "eee6be0fa8cf8841",
-        "order": 2,
-        "width": "3",
-        "height": "2",
-        "name": "",
-        "label": "BP",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": true,
-        "font": "Arial,Arial,Helvetica,sans-serif",
-        "fontSize": "64",
-        "color": "#ff2600",
-        "wrapText": false,
-        "className": "",
-        "x": 850,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "b8a06cd1bf4f6333",
-        "type": "ui-text",
-        "z": "9c617a91ead5c9c3",
-        "d": true,
-        "group": "eee6be0fa8cf8841",
-        "order": 3,
-        "width": "3",
-        "height": "2",
-        "name": "",
-        "label": "DIAS",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": true,
-        "font": "Arial,Arial,Helvetica,sans-serif",
-        "fontSize": "48",
-        "color": "#ff2600",
-        "wrapText": false,
-        "className": "",
-        "x": 630,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "e98e97b45868c909",
-        "type": "ui-text",
-        "z": "9c617a91ead5c9c3",
-        "d": true,
-        "group": "eee6be0fa8cf8841",
-        "order": 4,
-        "width": "3",
-        "height": "2",
-        "name": "",
-        "label": "MAP",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": true,
-        "font": "Arial,Arial,Helvetica,sans-serif",
-        "fontSize": "48",
-        "color": "#ff2600",
-        "wrapText": false,
-        "className": "",
-        "x": 590,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "342858d7b399b034",
-        "type": "ui-button",
-        "z": "9c617a91ead5c9c3",
-        "group": "c61f9fdcfb121fcd",
-        "name": "Zero Pressure Sensor",
-        "label": "Zero Pressure Sensor",
-        "order": 2,
-        "width": "3",
-        "height": "2",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "mdi-target",
-        "iconPosition": "left",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "payload",
-        "topicType": "msg",
-        "buttonColor": "",
-        "textColor": "",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 200,
-        "y": 900,
-        "wires": [
-            [
-                "6485907aaa5396be"
-            ]
-        ]
-    },
-    {
-        "id": "ada7a79e1a21f33e",
-        "type": "ui-notification",
-        "z": "9c617a91ead5c9c3",
-        "ui": "25e9a4029c0aff9c",
-        "position": "center center",
-        "colorDefault": true,
-        "color": "#000000",
-        "displayTime": "10",
-        "showCountdown": true,
-        "outputs": 1,
-        "allowDismiss": true,
-        "dismissText": "Close",
-        "allowConfirm": true,
-        "confirmText": "Confirm",
-        "raw": true,
-        "className": "",
-        "name": "are you sure",
-        "x": 630,
-        "y": 900,
-        "wires": [
-            [
-                "d2d8b852d8c821de"
-            ]
-        ]
-    },
-    {
-        "id": "6b43b98d2fd9a609",
-        "type": "ui-markdown",
-        "z": "9c617a91ead5c9c3",
-        "group": "c61f9fdcfb121fcd",
-        "name": "",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "content": "### Zeroing Pressure Transducer\n\n1. Turn the stopcock off to the perfusate line.\n2. Remove the nonvented cap from the stopcock, opening it to air.\n3. **Press the zero button below.**\n4. Place a new, sterile cap on the stopcock.\n5. Turn the stopcock to open the transducer to the perfusate line. ",
-        "className": "",
-        "x": 110,
-        "y": 820,
-        "wires": [
-            []
         ]
     },
     {
@@ -846,243 +552,6 @@
             [
                 "ada7a79e1a21f33e"
             ]
-        ]
-    },
-    {
-        "id": "b25fe710b1019823",
-        "type": "ui-gauge",
-        "z": "9c617a91ead5c9c3",
-        "name": "temp gauge setup page",
-        "group": "ab5a955a20c797d7",
-        "order": 1,
-        "value": "payload.temp",
-        "valueType": "msg",
-        "width": 3,
-        "height": "4",
-        "gtype": "gauge-half",
-        "gstyle": "needle",
-        "title": "Temperature",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "°C",
-        "icon": "",
-        "prefix": "",
-        "suffix": "",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#ff2600",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "34",
-                "color": "#ff9300",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "35",
-                "color": "#fffb00",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "36",
-                "color": "#00f900",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "38",
-                "color": "#fffb00",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "39",
-                "color": "#ff9300",
-                "text": "",
-                "textType": "label"
-            },
-            {
-                "from": "40",
-                "color": "#ff2600",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": "20",
-        "max": "40",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 590,
-        "y": 40,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4fc8a2c57f27f4fc",
-        "type": "ui-switch",
-        "z": "9c617a91ead5c9c3",
-        "name": "",
-        "label": "Pump On-Off Switch",
-        "group": "8454efb05038013c",
-        "order": 3,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "decouple": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "className": "",
-        "layout": "row-spread",
-        "clickableArea": "switch",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "mdi-power mdi-48px",
-        "oncolor": "#00ff00",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "mdi-power-plug-off mdi-48px",
-        "offcolor": "#ff0000",
-        "x": 180,
-        "y": 1080,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "99c966a84bb8531c",
-        "type": "ui-slider",
-        "z": "9c617a91ead5c9c3",
-        "group": "8454efb05038013c",
-        "name": "Pump Speed",
-        "label": "Pump Speed (mL/ min)",
-        "tooltip": "",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "outs": "end",
-        "topic": "topic",
-        "topicType": "msg",
-        "thumbLabel": "true",
-        "showTicks": "always",
-        "min": 0,
-        "max": "1000",
-        "step": "10",
-        "className": "",
-        "iconPrepend": "",
-        "iconAppend": "",
-        "color": "",
-        "colorTrack": "",
-        "colorThumb": "",
-        "showTextField": true,
-        "x": 150,
-        "y": 1140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e33feaec7820ee72",
-        "type": "ui-template",
-        "z": "9c617a91ead5c9c3",
-        "group": "",
-        "page": "4a06c9c93d0ab176",
-        "ui": "",
-        "name": "",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "body {\n    font-family: Arial, Helvetica, sans-serif;\n}",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "page:style",
-        "className": "",
-        "x": 190,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "38ead5d90b49a858",
-        "type": "ui-switch",
-        "z": "9c617a91ead5c9c3",
-        "name": "",
-        "label": "Set Pump Direction",
-        "group": "8454efb05038013c",
-        "order": 4,
-        "width": "2",
-        "height": "1",
-        "passthru": false,
-        "decouple": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "className": "",
-        "layout": "row-spread",
-        "clickableArea": "switch",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "mdi-restore mdi-48px",
-        "oncolor": "#ffffff",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "mdi-reload mdi-48px",
-        "offcolor": "#ffffff",
-        "x": 190,
-        "y": 1200,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b837e4287355fdfc",
-        "type": "ui-button-group",
-        "z": "9c617a91ead5c9c3",
-        "name": "",
-        "group": "8454efb05038013c",
-        "order": 1,
-        "width": "3",
-        "height": 1,
-        "label": "Pump On-Off Switch",
-        "className": "",
-        "rounded": true,
-        "useThemeColors": false,
-        "passthru": false,
-        "options": [
-            {
-                "label": "On",
-                "icon": "mdi-power mdi-48px",
-                "value": "true",
-                "valueType": "bool",
-                "color": "#00f900"
-            },
-            {
-                "label": "Off",
-                "icon": "mdi-power mdi-48px",
-                "value": "false",
-                "valueType": "bool",
-                "color": "#ff2600"
-            }
-        ],
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 200,
-        "y": 1000,
-        "wires": [
-            []
         ]
     },
     {
@@ -1130,8 +599,8 @@
         "type": "serial out",
         "z": "9c617a91ead5c9c3",
         "name": "",
-        "serial": "071a1f13397ea2c4",
-        "x": 840,
+        "serial": "a41872622479fd26",
+        "x": 850,
         "y": 1060,
         "wires": []
     },
@@ -1156,28 +625,6 @@
         ]
     },
     {
-        "id": "8736f9ee0b203013",
-        "type": "ui-text",
-        "z": "9c617a91ead5c9c3",
-        "group": "ab5a955a20c797d7",
-        "order": 2,
-        "width": "3",
-        "height": "2",
-        "name": "",
-        "label": "BP",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": true,
-        "font": "Arial,Arial,Helvetica,sans-serif",
-        "fontSize": "48",
-        "color": "#ff2600",
-        "wrapText": false,
-        "className": "",
-        "x": 870,
-        "y": 560,
-        "wires": []
-    },
-    {
         "id": "e4191f60cdedbe34",
         "type": "function",
         "z": "9c617a91ead5c9c3",
@@ -1194,117 +641,6 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "a1a0f11751b5bfed",
-        "type": "ui-text-input",
-        "z": "9c617a91ead5c9c3",
-        "group": "7163d48c7648fe22",
-        "name": "",
-        "label": "Temperature Sensor Data Name",
-        "order": 1,
-        "width": "5",
-        "height": "1",
-        "topic": "topic",
-        "topicType": "msg",
-        "mode": "text",
-        "tooltip": "",
-        "delay": 300,
-        "passthru": true,
-        "sendOnDelay": false,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "sendOnClear": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "x": 930,
-        "y": 40,
-        "wires": [
-            [
-                "e4191f60cdedbe34",
-                "3f739413fb386f1b"
-            ]
-        ]
-    },
-    {
-        "id": "3f739413fb386f1b",
-        "type": "ui-text",
-        "z": "9c617a91ead5c9c3",
-        "group": "7163d48c7648fe22",
-        "order": 2,
-        "width": "1",
-        "height": "1",
-        "name": "",
-        "label": ".csv",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "x": 1150,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "c22b6e410da2b395",
-        "type": "ui-text-input",
-        "z": "9c617a91ead5c9c3",
-        "group": "7163d48c7648fe22",
-        "name": "",
-        "label": "Pressure Sensor Data Name",
-        "order": 3,
-        "width": "5",
-        "height": "1",
-        "topic": "topic",
-        "topicType": "msg",
-        "mode": "text",
-        "tooltip": "",
-        "delay": 300,
-        "passthru": true,
-        "sendOnDelay": false,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "sendOnClear": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "x": 1080,
-        "y": 140,
-        "wires": [
-            [
-                "1d5d278dec425991"
-            ]
-        ]
-    },
-    {
-        "id": "1d5d278dec425991",
-        "type": "ui-text",
-        "z": "9c617a91ead5c9c3",
-        "group": "7163d48c7648fe22",
-        "order": 4,
-        "width": "1",
-        "height": "1",
-        "name": "",
-        "label": ".csv",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "x": 1290,
-        "y": 140,
-        "wires": []
     },
     {
         "id": "392690e468e74e98",
@@ -1355,7 +691,7 @@
         "z": "9c617a91ead5c9c3",
         "d": true,
         "name": "testtemps",
-        "filename": "/Users/ethankozberg/Documents/programmingMisc/Kidney Test CSV Outputs/testtemps.csv",
+        "filename": "C:\\Users\\kidney\\Documents\\Kidney Data\\testtemps.csv",
         "filenameType": "str",
         "appendNewline": false,
         "createDir": true,
@@ -1373,7 +709,7 @@
         "z": "9c617a91ead5c9c3",
         "d": true,
         "name": "testpressures",
-        "filename": "/Users/ethankozberg/Documents/programmingMisc/Kidney Test CSV Outputs/testpressures.csv",
+        "filename": "C:\\Users\\kidney\\Documents\\Kidney Data\\testpressures.csv",
         "filenameType": "str",
         "appendNewline": false,
         "createDir": true,
@@ -1484,13 +820,13 @@
         "z": "9c617a91ead5c9c3",
         "d": true,
         "name": "",
-        "filename": "/Users/ethankozberg/Documents/programmingMisc/Kidney Test CSV Outputs/testtimestamps.csv",
+        "filename": "C:\\Users\\kidney\\Documents\\Kidney Data\\timestamps.csv",
         "filenameType": "str",
         "appendNewline": true,
         "createDir": true,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1180,
+        "x": 1050,
         "y": 200,
         "wires": [
             []
@@ -1517,8 +853,7 @@
         "y": 540,
         "wires": [
             [
-                "57e5b55dd50650ad",
-                "8736f9ee0b203013"
+                "57e5b55dd50650ad"
             ]
         ]
     },
@@ -1546,5 +881,775 @@
                 "9b4e3e9b8fecfb8c"
             ]
         ]
+    },
+    {
+        "id": "a1a0f11751b5bfed",
+        "type": "ui-text-input",
+        "z": "9c617a91ead5c9c3",
+        "group": "7163d48c7648fe22",
+        "name": "",
+        "label": "Temperature Sensor Data Name",
+        "order": 1,
+        "width": "5",
+        "height": "1",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 930,
+        "y": 40,
+        "wires": [
+            [
+                "e4191f60cdedbe34",
+                "3f739413fb386f1b"
+            ]
+        ]
+    },
+    {
+        "id": "c22b6e410da2b395",
+        "type": "ui-text-input",
+        "z": "9c617a91ead5c9c3",
+        "group": "7163d48c7648fe22",
+        "name": "",
+        "label": "Pressure Sensor Data Name",
+        "order": 3,
+        "width": "5",
+        "height": "1",
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 1080,
+        "y": 140,
+        "wires": [
+            [
+                "1d5d278dec425991"
+            ]
+        ]
+    },
+    {
+        "id": "342858d7b399b034",
+        "type": "ui-button",
+        "z": "9c617a91ead5c9c3",
+        "group": "c61f9fdcfb121fcd",
+        "name": "Zero Pressure Sensor",
+        "label": "Zero Pressure Sensor",
+        "order": 2,
+        "width": "3",
+        "height": "2",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-target",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "payload",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 200,
+        "y": 900,
+        "wires": [
+            [
+                "6485907aaa5396be"
+            ]
+        ]
+    },
+    {
+        "id": "b837e4287355fdfc",
+        "type": "ui-button-group",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "group": "8454efb05038013c",
+        "order": 1,
+        "width": "3",
+        "height": 1,
+        "label": "Pump On-Off Switch",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": false,
+        "passthru": false,
+        "options": [
+            {
+                "label": "On",
+                "icon": "mdi-power mdi-48px",
+                "value": "true",
+                "valueType": "bool",
+                "color": "#00f900"
+            },
+            {
+                "label": "Off",
+                "icon": "mdi-power mdi-48px",
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ff2600"
+            }
+        ],
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "99c966a84bb8531c",
+        "type": "ui-slider",
+        "z": "9c617a91ead5c9c3",
+        "group": "8454efb05038013c",
+        "name": "Pump Speed",
+        "label": "Pump Speed (mL/ min)",
+        "tooltip": "",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "thumbLabel": "true",
+        "showTicks": "always",
+        "min": 0,
+        "max": "1000",
+        "step": "10",
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": true,
+        "x": 150,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4fc8a2c57f27f4fc",
+        "type": "ui-switch",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "label": "Pump On-Off Switch",
+        "group": "8454efb05038013c",
+        "order": 3,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "mdi-power mdi-48px",
+        "oncolor": "#00ff00",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "mdi-power-plug-off mdi-48px",
+        "offcolor": "#ff0000",
+        "x": 180,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "38ead5d90b49a858",
+        "type": "ui-switch",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "label": "Set Pump Direction",
+        "group": "8454efb05038013c",
+        "order": 4,
+        "width": "2",
+        "height": "1",
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "mdi-restore mdi-48px",
+        "oncolor": "#ffffff",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "mdi-reload mdi-48px",
+        "offcolor": "#ffffff",
+        "x": 190,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "57e5b55dd50650ad",
+        "type": "ui-text",
+        "z": "9c617a91ead5c9c3",
+        "group": "eee6be0fa8cf8841",
+        "order": 2,
+        "width": "3",
+        "height": "2",
+        "name": "",
+        "label": "SYS",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": true,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": "64",
+        "color": "#ff2600",
+        "wrapText": false,
+        "className": "",
+        "x": 850,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "8736f9ee0b203013",
+        "type": "ui-text",
+        "z": "9c617a91ead5c9c3",
+        "group": "ab5a955a20c797d7",
+        "order": 2,
+        "width": "3",
+        "height": "2",
+        "name": "",
+        "label": "BP",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": true,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": "48",
+        "color": "#ff2600",
+        "wrapText": false,
+        "className": "",
+        "x": 950,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "3f739413fb386f1b",
+        "type": "ui-text",
+        "z": "9c617a91ead5c9c3",
+        "group": "7163d48c7648fe22",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "name": "",
+        "label": ".csv",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 1150,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "1d5d278dec425991",
+        "type": "ui-text",
+        "z": "9c617a91ead5c9c3",
+        "group": "7163d48c7648fe22",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "name": "",
+        "label": ".csv",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "x": 1290,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "30c07574f0518963",
+        "type": "ui-chart",
+        "z": "9c617a91ead5c9c3",
+        "group": "28d4bbdde9f953ac",
+        "name": "",
+        "label": "Temperature Chart",
+        "order": 1,
+        "chartType": "line",
+        "category": "",
+        "categoryType": "none",
+        "xAxisLabel": "timestamp",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "HH:mm:ss",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "temperature (*C)",
+        "yAxisProperty": "payload.temp",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#00fdff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#ffffff"
+        ],
+        "textColorDefault": false,
+        "gridColor": [
+            "#0061ff"
+        ],
+        "gridColorDefault": true,
+        "width": "9",
+        "height": "4",
+        "className": "",
+        "interpolation": "linear",
+        "x": 690,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9b4e3e9b8fecfb8c",
+        "type": "ui-chart",
+        "z": "9c617a91ead5c9c3",
+        "group": "eee6be0fa8cf8841",
+        "name": "",
+        "label": "PRESSURE (mmHg)",
+        "order": 1,
+        "chartType": "line",
+        "category": "",
+        "categoryType": "none",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "HH:mm:ss",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "mmHg",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#ff0000",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#ffffff"
+        ],
+        "textColorDefault": false,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "9",
+        "height": "6",
+        "className": "",
+        "interpolation": "linear",
+        "x": 760,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "51cf3e5d19e7cc44",
+        "type": "ui-gauge",
+        "z": "9c617a91ead5c9c3",
+        "name": "temp gauge",
+        "group": "28d4bbdde9f953ac",
+        "order": 2,
+        "value": "payload.temp",
+        "valueType": "msg",
+        "width": 3,
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperature",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ff2600",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "34",
+                "color": "#ff9300",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "35",
+                "color": "#fffb00",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "36",
+                "color": "#00f900",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "38",
+                "color": "#fffb00",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "39",
+                "color": "#ff9300",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ff2600",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "20",
+        "max": "40",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 570,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b25fe710b1019823",
+        "type": "ui-gauge",
+        "z": "9c617a91ead5c9c3",
+        "name": "temp gauge setup page",
+        "group": "ab5a955a20c797d7",
+        "order": 1,
+        "value": "payload.temp",
+        "valueType": "msg",
+        "width": 3,
+        "height": "4",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperature",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ff2600",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "34",
+                "color": "#ff9300",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "35",
+                "color": "#fffb00",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "36",
+                "color": "#00f900",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "38",
+                "color": "#fffb00",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "39",
+                "color": "#ff9300",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#ff2600",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "20",
+        "max": "40",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 590,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ada7a79e1a21f33e",
+        "type": "ui-notification",
+        "z": "9c617a91ead5c9c3",
+        "ui": "25e9a4029c0aff9c",
+        "position": "center center",
+        "colorDefault": true,
+        "color": "#000000",
+        "displayTime": "10",
+        "showCountdown": true,
+        "outputs": 1,
+        "allowDismiss": true,
+        "dismissText": "Close",
+        "allowConfirm": true,
+        "confirmText": "Confirm",
+        "raw": true,
+        "className": "",
+        "name": "are you sure",
+        "x": 630,
+        "y": 900,
+        "wires": [
+            [
+                "d2d8b852d8c821de"
+            ]
+        ]
+    },
+    {
+        "id": "6b43b98d2fd9a609",
+        "type": "ui-markdown",
+        "z": "9c617a91ead5c9c3",
+        "group": "c61f9fdcfb121fcd",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "content": "### Zeroing Pressure Transducer\n\n1. Turn the stopcock off to the perfusate line.\n2. Remove the nonvented cap from the stopcock, opening it to air.\n3. **Press the zero button below.**\n4. Place a new, sterile cap on the stopcock.\n5. Turn the stopcock to open the transducer to the perfusate line. ",
+        "className": "",
+        "x": 110,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e33feaec7820ee72",
+        "type": "ui-template",
+        "z": "9c617a91ead5c9c3",
+        "group": "",
+        "page": "4a06c9c93d0ab176",
+        "ui": "",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "body {\n    font-family: Arial, Helvetica, sans-serif;\n}",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "page:style",
+        "className": "",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "561a2f5ae4aa7898",
+        "type": "delay",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 600,
+        "wires": [
+            [
+                "63c4d39e9a4b337b"
+            ]
+        ]
+    },
+    {
+        "id": "63c4d39e9a4b337b",
+        "type": "ui-text",
+        "z": "9c617a91ead5c9c3",
+        "group": "eee6be0fa8cf8841",
+        "order": 2,
+        "width": "3",
+        "height": "2",
+        "name": "",
+        "label": "DIA",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": true,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": "64",
+        "color": "#ff2600",
+        "wrapText": false,
+        "className": "",
+        "x": 870,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "158e7a7c7c9170b1",
+        "type": "delay",
+        "z": "9c617a91ead5c9c3",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 640,
+        "wires": [
+            [
+                "764d3c02c0571b82"
+            ]
+        ]
+    },
+    {
+        "id": "764d3c02c0571b82",
+        "type": "ui-text",
+        "z": "9c617a91ead5c9c3",
+        "group": "eee6be0fa8cf8841",
+        "order": 2,
+        "width": "3",
+        "height": "2",
+        "name": "",
+        "label": "MAP",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": true,
+        "font": "Arial,Arial,Helvetica,sans-serif",
+        "fontSize": "64",
+        "color": "#ff2600",
+        "wrapText": false,
+        "className": "",
+        "x": 850,
+        "y": 600,
+        "wires": []
     }
 ]
