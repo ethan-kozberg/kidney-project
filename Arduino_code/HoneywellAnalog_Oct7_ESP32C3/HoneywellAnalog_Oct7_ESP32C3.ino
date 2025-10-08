@@ -4,9 +4,14 @@
 #include<CircularBuffer.hpp>
 
 // circular buffer
-CircularBuffer<int, 64> buffer;
-int INTERVAL = 100; // ms interval
+CircularBuffer<float, 50> buffer; // running average buffer
+CircularBuffer<float, 50> pulse_buffer; // pulse buffer
+int INTERVAL = 10; // ms interval for running average sampling
+int PULSE_INTERVAL = 50; // ms interval for pulse sampling (around nyquist freq)
+
+// timer setup
 unsigned long _time = 0;
+unsigned long _pulsetime = 0;
 
 // Constants
 const float V_REF = 5.0;     // Analog reference voltage (e.g., 5V or 3.3V)
@@ -47,25 +52,41 @@ void loop() {
 
   buffer.push(pressure);
 
-  if (millis() - _time > INTERVAL) {
-    _time = millis();
-    float avg = 0.0;
+  if (millis() - _pulsetime > PULSE_INTERVAL) {
+    _pulsetime = millis();
     float sys = 0.0;
     float dia = 0.0;
     float map = 0.0;
+    float avg = 0.0;
+    float pulse_avg = 0.0;
     
-    // the following ensures using the right type for the index variable
-		using index_t = decltype(buffer)::index_t;
-    for (index_t i = 0; i < buffer.size(); i++) {
-			avg += buffer[i] / (float)buffer.size();
-      if (buffer[i] >= sys) {
-        sys = buffer[i];
+    // running average filter: find average at fast ms interval
+    if (millis() - _time > INTERVAL) {
+      avg = 0.0;
+      _time = millis();
+
+      // the following ensures using the right type for the index variable
+      using index_t = decltype(buffer)::index_t;
+      for (index_t i = 0; i < buffer.size(); i++) {
+        avg += buffer[i] / (float)buffer.size();
         }
-      if (buffer[i] <= dia) {
-        dia = buffer[i];
+    }
+
+    pulse_buffer.push(avg);
+
+    // now do buffer for sys and dia
+    using index_t = decltype(pulse_buffer)::index_t;
+    for (index_t i = 0; i < pulse_buffer.size(); i++) {
+      if (pulse_buffer[i] >= sys) {
+        sys = pulse_buffer[i];
+        }
+      if (pulse_buffer[i] <= dia) {
+        dia = pulse_buffer[i];
         }
       map = dia + ((sys-dia)/3);
+      pulse_avg = avg;
 		}
+
 
     Serial.print("{\"SYS\":"); 
     Serial.print(sys,1); // Print SYS with 1 decimal places
@@ -74,7 +95,7 @@ void loop() {
     Serial.print(",\"MAP\":"); 
     Serial.print(map,1); // Print MAP with 1 decimal places
     Serial.print(",\"AVG\":"); 
-    Serial.print(avg,1); // Print AVG with 1 decimal places
+    Serial.print(pulse_avg,1); // Print AVG with 1 decimal places
     Serial.println("}");
   }
 }
